@@ -3,12 +3,12 @@ import { chromium } from "playwright";
 
 const BASE_URL =
   process.env.LINKEDIN_URL ||
-  "https://www.linkedin.com/search/results/people/?keywords=software%20engineering%20manager&origin=FACETED_SEARCH&network=%5B%22O%22%5D&geoUrn=%5B%22103644278%22%5D&currentCompany=%5B%221441%22%2C%2216140%22%5D";
+  "https://www.linkedin.com/search/results/people/?keywords=software%20engineering%20manager&origin=FACETED_SEARCH&network=%5B%22O%22%2C%22S%22%5D&geoUrn=%5B%22103644278%22%5D&currentCompany=%5B%221441%22%2C%2216140%22%5D";
 const CDP_URL = process.env.BRAVE_CDP_URL || "http://127.0.0.1:9222";
-const MAX_PROFILES_TO_OPEN = Number(process.env.MAX_PROFILES_TO_OPEN || 10);
+const MAX_PROFILES_TO_OPEN = Number(process.env.MAX_PROFILES_TO_OPEN || 100);
 const START_PAGE = Number(process.env.START_PAGE || 1);
-const END_PAGE = Number(process.env.END_PAGE || 3);
-const CONCURRENCY = Number(process.env.CONCURRENCY || 5);
+const END_PAGE = Number(process.env.END_PAGE || 10);
+const CONCURRENCY = Number(process.env.CONCURRENCY || 2);
 const OUTPUT_FILE = process.env.OUTPUT_FILE || "output/profiles.json";
 const CACHE_FILE = process.env.CACHE_FILE || "output/visited-cache.json";
 
@@ -64,7 +64,7 @@ async function collectProfileLinks(page) {
   await page.waitForTimeout(3000);
 
   return page.evaluate((maxProfiles) => {
-    const anchors = Array.from(document.querySelectorAll('a[href*="/in/"]'));
+    const anchors = Array.from(document.querySelectorAll('a[data-view-name="search-result-lockup-title"]'));
     const links = [];
     const seen = new Set();
 
