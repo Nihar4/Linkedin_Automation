@@ -1,0 +1,8 @@
+npm start
+
+spartan@MLK-SCS-M9RWRY2DV4 LinkedinAutomation % /Applications/Brave\ Browser.app/Contents/MacOS/Brave\ Browser \
+  --remote-debugging-port=9222 \
+  --user-data-dir="$HOME/Library/Application Support/BraveSoftware/Brave-Browser" \
+  --profile-directory="Default"
+
+  
