@@ -3,10 +3,10 @@ import { chromium } from "playwright";
 
 const BASE_URL =
   process.env.LINKEDIN_URL ||
-  "https://www.linkedin.com/search/results/people/?keywords=software%20engineering%20manager&origin=FACETED_SEARCH&network=%5B%22S%22%5D&geoUrn=%5B%22103644278%22%5D&currentCompany=%5B%221441%22%2C%2216140%22%5D";
+  "https://www.linkedin.com/search/results/people/?keywords=software%20engineering%20manager&origin=FACETED_SEARCH&network=%5B%22O%22%5D&geoUrn=%5B%22103644278%22%5D&currentCompany=%5B%221441%22%2C%2216140%22%5D";
 const CDP_URL = process.env.BRAVE_CDP_URL || "http://127.0.0.1:9222";
 const MAX_PROFILES_TO_OPEN = Number(process.env.MAX_PROFILES_TO_OPEN || 10);
-const START_PAGE = Number(process.env.START_PAGE || 2);
+const START_PAGE = Number(process.env.START_PAGE || 1);
 const END_PAGE = Number(process.env.END_PAGE || 3);
 const CONCURRENCY = Number(process.env.CONCURRENCY || 5);
 const OUTPUT_FILE = process.env.OUTPUT_FILE || "output/profiles.json";
