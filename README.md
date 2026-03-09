@@ -25,3 +25,6 @@ The automation will:
 
 ## 📝 Configuration
 To alter the search term or how many people the automation reaches out to, you can update variables like `BASE_URL`, `MAX_PROFILES_TO_OPEN`, `START_PAGE`, and `END_PAGE` directly in `src/open-linkedin.js`.
+
+## 🔄 Resetting Data
+If you want to start fresh or run the tool on a new search without skipping profiles it already processed, you need to reset the output files. To do this, simply delete or empty the contents of the files located in the `output/` directory (e.g., `output/profiles.json` and `output/visited-cache.json`).
